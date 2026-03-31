@@ -8,9 +8,9 @@ Intelligent Traffic Signal Control using Reinforcement Learning
 
 ## 🔰 Phase 1: Setup & Familiarization
 
-* [ ] Install and configure SUMO, TraCI, and Python environment
-* [ ] Successfully run a basic SUMO simulation (OSM map + vehicles)
-* [ ] Understand SUMO files (`.net.xml`, `.rou.xml`, `.sumocfg`)
+* [x] Install and configure SUMO, TraCI, and Python environment
+* [x] Successfully run a basic SUMO simulation (OSM map + vehicles)
+* [x] Understand SUMO files (`.net.xml`, `.rou.xml`, `.sumocfg`)
 * [ ] Explore SUMO GUI (inspect vehicles, edges, junctions)
 * [ ] Run simulation using Python (TraCI loop working)
 
