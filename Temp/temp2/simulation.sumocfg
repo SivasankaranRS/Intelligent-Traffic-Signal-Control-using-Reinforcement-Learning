@@ -5,4 +5,8 @@
         <additional-files value="type.add.xml"/>
         <gui-settings-file value="view.xml"/>
     </input>
+    <time>
+        <begin value="0"/>
+        <end value="2000"/>
+    </time>
 </configuration>
