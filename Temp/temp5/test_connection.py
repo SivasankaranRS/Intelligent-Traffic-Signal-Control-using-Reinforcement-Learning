@@ -21,14 +21,18 @@ if all_tls:
 
 # 3. Run a few steps to see cars
 print(f"--- SIMULATION START ---")
-for step in range(100):
+# Instead of just watching, let's force a phase change
+for step in range(1000):
     traci.simulationStep()
-    
-    # Check if any cars are waiting at the first controlled lane
-    if all_tls:
-        lane_to_check = controlled_lanes[0]
-        queue = traci.lane.getLastStepHaltingNumber(lane_to_check)
-        if queue > 0:
-            print(f"Step {step}: {queue} vehicles waiting at {lane_to_check}")
+
+    if step % 20 == 0: # Every 20 steps, toggle the light
+        # Get the current phase
+        current_phase = traci.trafficlight.getPhase(tls_id)
+        
+        # Switch to the next phase (0, 1, 2, 3...)
+        # Note: In SUMO, even numbers are usually Green, odd are Yellow
+        new_phase = (current_phase + 1) % 4 
+        traci.trafficlight.setPhase(tls_id, new_phase)
+        print(f"Step {step}: Manually switched {tls_id} to phase {new_phase}")
 
 traci.close()
