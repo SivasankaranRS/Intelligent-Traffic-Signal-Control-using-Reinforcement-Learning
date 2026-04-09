@@ -25,11 +25,15 @@ def get_valid_path(base, filename):
     return None
 
 # Downloading these files from the "Intersection Model" folder is required
-NET_FILE = get_valid_path(BASE_PATH, 'cross.net.xml')
-ROU_FILE = get_valid_path(BASE_PATH, 'cross.rou.xml')
+
+#NET_FILE = get_valid_path(BASE_PATH, 'cross.net.xml')
+#ROU_FILE = get_valid_path(BASE_PATH, 'cross.rou.xml')
+
+NET_FILE = "./cross.net.xml"
+ROU_FILE = "./cross.rou.xml"
 
 if not NET_FILE or not ROU_FILE:
-    print(f"CRITICAL ERROR: 'cross.net.xml' or 'cross.rou.xml' not found in {BASE_PATH}")
+    print(f"CRITICAL ERROR: 'cross.net.xml' or 'cross.rou.xml' not found")
     sys.exit()
 
 # 3. SARSA AGENT DEFINITION
@@ -65,6 +69,64 @@ class SARSAAgent:
     def decay_epsilon(self, decay_rate=0.995, min_epsilon=0.01):
         """Decay the exploration rate."""
         self.epsilon = max(min_epsilon, self.epsilon * decay_rate)
+
+    def save_model(self, filepath="sarsa_qtable.pkl"):
+        """Saves the Q-table to a file."""
+        with open(filepath, 'wb') as f:
+            pickle.dump(self.q_table, f)
+        print(f"Model successfully saved to: {filepath}")
+
+    def load_model(self, filepath="sarsa_qtable.pkl"):
+        """Loads the Q-table from a file."""
+        if os.path.exists(filepath):
+            with open(filepath, 'rb') as f:
+                self.q_table = pickle.load(f)
+            print(f"Model successfully loaded from: {filepath}")
+        else:
+            print(f"Warning: No saved model found at {filepath}")
+
+
+def evaluate_model(agent, net_file, rou_file, tripinfo_file="tripinfo.xml"):
+    """
+    Evaluates the trained agent and generates a tripinfo.xml file.
+    """
+    print(f"\n--- Starting Evaluation ---")
+    print(f"Generating trip info file at: {tripinfo_file}")
+    
+    # Initialize a fresh environment specifically for evaluation
+    eval_env = SumoEnvironment(
+        net_file=net_file, 
+        route_file=rou_file,
+        use_gui=False, # Set to True if you want to watch the trained agent
+        num_seconds=3600,
+        single_agent=True,
+        additional_sumo_cmd=f"--tripinfo-output {tripinfo_file}" # Tells SUMO to generate the XML
+    )
+    
+    state, info = eval_env.reset()
+    done = False
+    total_eval_reward = 0
+    
+    # Save the original epsilon and set it to 0 for pure exploitation (no random actions)
+    original_epsilon = agent.epsilon
+    agent.epsilon = 0.0
+    
+    while not done:
+        action = agent.choose_action(state)
+        next_state, reward, terminated, truncated, info = eval_env.step(action)
+        
+        done = terminated or truncated
+        state = next_state
+        total_eval_reward += reward
+        
+    # Clean up and restore
+    agent.epsilon = original_epsilon
+    eval_env.close()
+    
+    print(f"Evaluation completed! Total Reward: {total_eval_reward}")
+    print(f"Trip info successfully saved to: {os.path.abspath(tripinfo_file)}\n")
+
+
 
 # 4. START SIMULATION AND TRAINING
 try:
@@ -116,6 +178,9 @@ try:
     env.close()
     
     print("Training completed successfully.")
+    
+    agent.save_model()
+    evaluate_model(agent, NET_FILE, ROU_FILE, tripinfo_file="tripinfo_eval.xml")
     
 except Exception as e:
     print(f"Error during simulation or training: {e}")
