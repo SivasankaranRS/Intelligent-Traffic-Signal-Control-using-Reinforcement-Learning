@@ -1,0 +1,10 @@
+<additional>
+    <vType id="my_car" vClass="passenger" maxSpeed="25.0" accel="2.6" decel="4.5" color="yellow"/>
+    
+    <vType id="my_bus" vClass="bus" maxSpeed="15.0" length="12.0" color="blue"/>
+    
+    <vType id="my_bike" vClass="bicycle" maxSpeed="5.5" color="red"/>
+
+    <vType id="my_emergency" vClass="emergency" maxSpeed="40.0" color="green"/>
+
+</additional>

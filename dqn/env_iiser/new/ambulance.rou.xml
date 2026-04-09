@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-04-09 13:20:37.222525 by Eclipse SUMO randomTrips.py UNKNOWN
+<configuration>
+    <net-file value="map.net.xml"/>
+    <output-trip-file value="ambulance.rou.xml"/>
+    <prefix value="emergency"/>
+    <trip-attributes value="type=&quot;my_emergency&quot;"/>
+    <fringe-factor value="10"/>
+    <edge-permission value="emergency"/>
+    <period value="60.0"/>
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <trip id="emergency0" depart="0.00" from="1445926303#3" to="-1018228073#0" type="my_emergency"/>
+    <trip id="emergency1" depart="60.00" from="-1445927128" to="-469966399#5" type="my_emergency"/>
+    <trip id="emergency2" depart="120.00" from="1445927129" to="1445927128" type="my_emergency"/>
+    <trip id="emergency3" depart="180.00" from="475071113#5" to="-1445926305#1" type="my_emergency"/>
+    <trip id="emergency4" depart="240.00" from="-469966399#9" to="-1018228073#0" type="my_emergency"/>
+    <trip id="emergency5" depart="300.00" from="-1445926308#0" to="1445926303#4" type="my_emergency"/>
+    <trip id="emergency6" depart="360.00" from="-1018228073#1" to="-469966399#12" type="my_emergency"/>
+    <trip id="emergency7" depart="420.00" from="1445926305#0" to="1445926303#4" type="my_emergency"/>
+    <trip id="emergency8" depart="480.00" from="-1445926308#0" to="1445926307" type="my_emergency"/>
+    <trip id="emergency9" depart="540.00" from="469966399#4" to="-1018228073#0" type="my_emergency"/>
+    <trip id="emergency10" depart="600.00" from="469966399#4" to="1445927128" type="my_emergency"/>
+    <trip id="emergency11" depart="660.00" from="-469966399#14" to="-1445927129" type="my_emergency"/>
+    <trip id="emergency12" depart="720.00" from="798234860#0" to="-798234860#0" type="my_emergency"/>
+    <trip id="emergency13" depart="780.00" from="-1445926300" to="-1445926306#0" type="my_emergency"/>
+    <trip id="emergency14" depart="840.00" from="469966400#1" to="1445926309" type="my_emergency"/>
+    <trip id="emergency15" depart="900.00" from="469966399#4" to="1462849220" type="my_emergency"/>
+    <trip id="emergency16" depart="960.00" from="-695769583" to="695769583" type="my_emergency"/>
+    <trip id="emergency17" depart="1020.00" from="-469966399#14" to="1445926303#4" type="my_emergency"/>
+    <trip id="emergency18" depart="1080.00" from="469966399#8" to="1445926311" type="my_emergency"/>
+    <trip id="emergency19" depart="1140.00" from="469966400#4" to="1445926306#0" type="my_emergency"/>
+    <trip id="emergency20" depart="1200.00" from="1445927129" to="-1018228073#0" type="my_emergency"/>
+    <trip id="emergency21" depart="1260.00" from="-1445926308#1" to="-475071113#3" type="my_emergency"/>
+    <trip id="emergency22" depart="1320.00" from="-1445926300" to="-469966399#7" type="my_emergency"/>
+    <trip id="emergency23" depart="1380.00" from="-1445926300" to="-475071113#0" type="my_emergency"/>
+    <trip id="emergency24" depart="1440.00" from="1445926303#2" to="-798234860#0" type="my_emergency"/>
+    <trip id="emergency25" depart="1500.00" from="-469966399#14" to="-469966399#2" type="my_emergency"/>
+    <trip id="emergency26" depart="1560.00" from="-1445927128" to="475071113#2" type="my_emergency"/>
+    <trip id="emergency27" depart="1620.00" from="1445926305#0" to="1445926311" type="my_emergency"/>
+    <trip id="emergency28" depart="1680.00" from="-1445926303#4" to="1462849220" type="my_emergency"/>
+    <trip id="emergency29" depart="1740.00" from="-1445926303#4" to="1018228073#1" type="my_emergency"/>
+    <trip id="emergency30" depart="1800.00" from="798234860#0" to="1445926311" type="my_emergency"/>
+    <trip id="emergency31" depart="1860.00" from="-798234860#1" to="1445927128" type="my_emergency"/>
+    <trip id="emergency32" depart="1920.00" from="469966400#1" to="469966399#0" type="my_emergency"/>
+    <trip id="emergency33" depart="1980.00" from="-1445926309" to="-1018228073#0" type="my_emergency"/>
+    <trip id="emergency34" depart="2040.00" from="-469966399#12" to="-469966400#3" type="my_emergency"/>
+    <trip id="emergency35" depart="2100.00" from="-1445926306#0" to="475071113#3" type="my_emergency"/>
+    <trip id="emergency36" depart="2160.00" from="475071113#2" to="-527232518#1" type="my_emergency"/>
+    <trip id="emergency37" depart="2220.00" from="1445926305#1" to="1018228073#1" type="my_emergency"/>
+    <trip id="emergency38" depart="2280.00" from="695769583" to="1445926300" type="my_emergency"/>
+    <trip id="emergency39" depart="2340.00" from="-1445927128" to="-469966399#9" type="my_emergency"/>
+    <trip id="emergency40" depart="2400.00" from="1018228073#0" to="-469966400#2" type="my_emergency"/>
+    <trip id="emergency41" depart="2460.00" from="1018228073#0" to="469966400#0" type="my_emergency"/>
+    <trip id="emergency42" depart="2520.00" from="-469966399#5" to="-469966399#4" type="my_emergency"/>
+    <trip id="emergency43" depart="2580.00" from="798234860#1" to="1445926303#4" type="my_emergency"/>
+    <trip id="emergency44" depart="2640.00" from="-1445926300" to="-1018228073#0" type="my_emergency"/>
+    <trip id="emergency45" depart="2700.00" from="-1445926303#0" to="1445926311" type="my_emergency"/>
+    <trip id="emergency46" depart="2760.00" from="469966399#13" to="1018228073#1" type="my_emergency"/>
+    <trip id="emergency47" depart="2820.00" from="-1445926300" to="1018228073#1" type="my_emergency"/>
+    <trip id="emergency48" depart="2880.00" from="798234860#1" to="1445926303#4" type="my_emergency"/>
+    <trip id="emergency49" depart="2940.00" from="798234860#0" to="469966399#2" type="my_emergency"/>
+    <trip id="emergency50" depart="3000.00" from="-1018228073#1" to="1445927130" type="my_emergency"/>
+    <trip id="emergency51" depart="3060.00" from="1445926308#0" to="1445926303#4" type="my_emergency"/>
+    <trip id="emergency52" depart="3120.00" from="-1445927128" to="1445926311" type="my_emergency"/>
+    <trip id="emergency53" depart="3180.00" from="-1445926303#0" to="1445926300" type="my_emergency"/>
+    <trip id="emergency54" depart="3240.00" from="-475071113#0" to="475071113#6" type="my_emergency"/>
+    <trip id="emergency55" depart="3300.00" from="475071113#2" to="-469966400#3" type="my_emergency"/>
+    <trip id="emergency56" depart="3360.00" from="-695769583" to="-469966399#0" type="my_emergency"/>
+    <trip id="emergency57" depart="3420.00" from="527232518#1" to="469966399#4" type="my_emergency"/>
+    <trip id="emergency58" depart="3480.00" from="-469966399#0" to="1445926311" type="my_emergency"/>
+    <trip id="emergency59" depart="3540.00" from="1018228073#0" to="-1445927129" type="my_emergency"/>
+</routes>

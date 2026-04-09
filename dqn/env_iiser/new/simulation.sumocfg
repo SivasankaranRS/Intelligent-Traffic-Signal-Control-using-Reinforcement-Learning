@@ -1,0 +1,11 @@
+<configuration>
+    <input>
+        <net-file value="map.net.xml"/>
+        
+        <route-files value="vtypes.add.xml,cars.rou.xml,ambulance.rou.xml,bikes.rou.xml,buses.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+    </time>
+</configuration>
