@@ -1,0 +1,9 @@
+<routes>
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="13.89" guiShape="passenger"/>
+    
+    <route id="r_we" edges="E0 E1"/>
+    <route id="r_ns" edges="E2 E3"/>
+
+    <flow id="f_we" type="car" route="r_we" begin="0" end="1000" period="5"/>
+    <flow id="f_ns" type="car" route="r_ns" begin="0" end="1000" period="5"/>
+</routes>

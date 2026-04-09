@@ -1,5 +1,6 @@
 import os
 import sys
+os.environ["PYTHONUNBUFFERED"] = "1"
 
 import gymnasium as gym
 from stable_baselines3.dqn.dqn import DQN
@@ -27,19 +28,6 @@ def patched_close(self):
 
 SumoEnvironment.close = patched_close
 
-# Monkey patch to fix the AttributeError in close
-LIBSUMO = "LIBSUMO_AS_TRACI" in os.environ
-def patched_close(self):
-    if not hasattr(self, 'sumo') or self.sumo is None:
-        return
-    if not LIBSUMO:
-        traci.switch(self.label)
-    traci.close()
-    if self.disp is not None:
-        self.disp.stop()
-        self.disp = None
-
-SumoEnvironment.close = patched_close
 
 
 env = SumoEnvironment(
@@ -62,7 +50,7 @@ model = DQN(
         exploration_final_eps=0.01,
         exploration_fraction=0.5,
         buffer_size=500000,
-        verbose=1,
+        verbose=0,
         tensorboard_log="./dqn_tensorboard/",
         seed=42,
     )
@@ -100,13 +88,13 @@ class RewardLoggingCallback(BaseCallback):
 
 # Create callback instances
 reward_callback = RewardLoggingCallback()
-progress_callback = ProgressBarCallback()
+# progress_callback = ProgressBarCallback()
 
 # Combine callbacks (removed eval_callback for faster training)
-callbacks = CallbackList([reward_callback, progress_callback])
+# callbacks = CallbackList([reward_callback, progress_callback])
 
 try:
-    model.learn(total_timesteps=100000, log_interval=1000, callback=callbacks)
+    model.learn(total_timesteps=100000, log_interval=1000, callback=reward_callback, progress_bar=True)
 except Exception as e:
     print(f"Training failed: {e}")
     # Optionally save partial model
