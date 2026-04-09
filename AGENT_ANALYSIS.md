@@ -2207,3 +2207,4 @@ Result: Agents interfere, suboptimal coordination
 4. **Implement early stopping** (when performance plateaus)
 5. **Add multi-seed runs** (report mean ± std)
 
+ 
